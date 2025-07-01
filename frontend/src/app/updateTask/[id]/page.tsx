@@ -9,9 +9,9 @@ interface PageProps {
   };
 }
 
-const UpdateTask = ({ params }: PageProps) => {
+const UpdateTask = async ({ params }: PageProps) => {
 
-  const {id } = params;
+  const {id } = await params;
   console.log("Update Task ID:", id);
   
 

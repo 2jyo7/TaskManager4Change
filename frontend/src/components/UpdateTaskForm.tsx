@@ -1,11 +1,14 @@
 "use client";
 import { TaskType } from '@/types/taskType';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 const UpdateTaskForm = ({ id }: { id: string }) => {
 
-    console.log("Update Task ID:", id);
+    // console.log("Update Task ID:", id);
+
+    const router = useRouter();
 
   const [updateTask, setUpdateTask] = useState<TaskType>({
     title: '',
@@ -38,6 +41,7 @@ const UpdateTaskForm = ({ id }: { id: string }) => {
     try {
       const response = await axios.put(`http://localhost:3200/api/tasks/${id}`, updateTask);
       console.log('Task updated:', response.data);
+      router.push("/")
     } catch (error) {
       console.error('Error updating task:', error);
     }

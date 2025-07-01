@@ -41,8 +41,8 @@ const TaskList = () => {
   });
 
   return (
-    <div className="p-4 max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6 text-center">Task List</h1>
+    <div className="p-4 max-w-6xl mx-auto flex flex-col justify-center">
+      <h1 className="text-2xl font-bold mb-6 text-center text-blue-900">Task List</h1>
 
       {/* Filters */}
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
@@ -96,19 +96,20 @@ const TaskList = () => {
               </span>
             </p>
 
-            <div className="flex justify-between mt-4">
-              <Link href={`/updateTask/${task._id}`}>
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded text-sm">
-                  Edit
-                </button>
-              </Link>
-              <button
-                onClick={() => handleDelete(task._id!)}
-                className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded text-sm"
-              >
-                Delete
-              </button>
-            </div>
+           <div className="flex flex-col sm:flex-row sm:justify-between gap-2 mt-4">
+  <Link href={`/updateTask/${task._id}`} className="w-full sm:w-auto">
+    <button className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm transition-all">
+      Edit
+    </button>
+  </Link>
+  <button
+    onClick={() => handleDelete(task._id!)}
+    className="w-full sm:w-auto bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded text-sm transition-all"
+  >
+    Delete
+  </button>
+</div>
+
           </div>
         ))}
       </div>

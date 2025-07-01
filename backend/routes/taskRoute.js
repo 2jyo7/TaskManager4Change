@@ -18,6 +18,7 @@ router.get('/', async (req, res) => {
 // Get one task by ID
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
+  console.log("Fetching task with ID:", id);
   try {
     const task = await Task.findById(id);
     if (!task) {
